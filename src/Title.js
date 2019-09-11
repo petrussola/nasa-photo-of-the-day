@@ -1,3 +1,11 @@
 import React from 'react';
 
-function Title()
+function Title({title}) {
+    return (
+        <>
+        <h1>{title}</h1>
+        </>
+    )
+}
+
+export default Title;
