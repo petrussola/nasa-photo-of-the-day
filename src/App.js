@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./App.css";
 import Title from './Title';
@@ -8,7 +8,7 @@ import Author from './Author';
 
 function App() {
 
-  const nasaAPI = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+  const nasaAPI = 'https://lambda-github-api-server.herokuapp.com/';
   const test = "test";
 
   
@@ -17,17 +17,22 @@ function App() {
   const [date, setDate] = useState(null);
   const [author, setAuthor] = useState(null);
   
+useEffect( () => {
   axios.get(nasaAPI)
     .then(resp => {
         setTitle(resp.data.title);
         setImageURL(resp.data.url);
         setDate(resp.data.date);
         setAuthor(resp.data.copyright);
+      })
+      .catch(error => {
+        console.log(error.message);
+      })
+      .finally( res => {
         debugger
-    })
-    .catch(error => {
-      console.log(error.message);
-    })
+      })
+}, [])
+
 
   return (
     <div>
