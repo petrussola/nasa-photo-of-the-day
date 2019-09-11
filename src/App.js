@@ -3,6 +3,7 @@ import "./App.css";
 import Title from './Title';
 import Image from './Image';
 import Date from './Date';
+import Author from './Author';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Title title={title}/>
       <Image url={imageUrl}/>
       <Date date={date} />
+      <Author author={author} />
     </>
   );
 }
