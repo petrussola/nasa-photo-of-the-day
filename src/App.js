@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import "./App.css";
 import Title from './Title';
 import Image from './Image';
@@ -7,10 +8,26 @@ import Author from './Author';
 
 function App() {
 
-  const [title, setTitle] = useState("test");
-  const [imageURL, setImageURL] = useState("test");
-  const [date, setDate] = useState("test");
-  const [author, setAuthor] = useState("test");
+  const nasaAPI = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+  const test = "test";
+
+  
+  const [title, setTitle] = useState(null);
+  const [imageURL, setImageURL] = useState(null);
+  const [date, setDate] = useState(null);
+  const [author, setAuthor] = useState(null);
+  
+  axios.get(nasaAPI)
+    .then(resp => {
+        setTitle(resp.data.title);
+        setImageURL(resp.data.url);
+        setDate(resp.data.date);
+        setAuthor(resp.data.copyright);
+        debugger
+    })
+    .catch(error => {
+      console.log(error.message);
+    })
 
   return (
     <div>
