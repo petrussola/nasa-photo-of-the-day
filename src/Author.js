@@ -1,9 +1,8 @@
 import React from 'react';
 
-function Author({author}) {
-    debugger
+function Author({authorState}) {
     return (
-        <p>{author}</p>
+        <p>{authorState}</p>
     )
 };
 

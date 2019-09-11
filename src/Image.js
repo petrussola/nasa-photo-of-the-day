@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Image({url}){
+function Image({urlState}){
     return (
         <div>
-            <img src={url} />
+            <img src={urlState} />
         </div>
     );
 };

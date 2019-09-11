@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Date({date}) {
+function Date({dateState}) {
     return (
-        <p>{date}</p>
+        <p>{dateState}</p>
     )
 };
 
