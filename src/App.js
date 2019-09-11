@@ -52,17 +52,30 @@ useEffect( () => {
     return dateInput.value;
   }
 
+  function handleChange(e){
+    console.log(e);
+    console.log(document.getElementById('form').value);
+    console.log(currDate);
+    setDateForm(document.getElementById('form').value);
+    console.log(currDate);
+  }
+
   return (
     <div className='container'>
       {/* <form>
         <input type='date' value="2019-11-09" onChange={ e => setDate(e.target.value)} />
       </form> */}
-      <form onSubmit={(e) => setDateForm(onSubmit(e))}>
-        <label>
+      <form onSubmit={(e) => setDateForm(onSubmit(e))} onChange={handleChange}>
+        {/* <label>
           Add your date 
           <input type='text' id='date'/>
           <input type='submit'  />
-        </label>
+        </label> */}
+        Add your date 
+        <select id='form'>
+          <option>2019-09-10</option>
+          <option>2019-08-28</option>
+        </select>
       </form>
       <Header title={titleState}/>
       <Image imageURL={imageState}/>
