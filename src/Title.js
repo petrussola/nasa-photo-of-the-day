@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Title({titleState}) {
+function Title({title}) {
     return (
         <>
-        <h1>{titleState}</h1>
+        <h1>{title}</h1>
         </>
     )
 }
