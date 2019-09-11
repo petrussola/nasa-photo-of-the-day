@@ -47,6 +47,14 @@ table {
 	border-spacing: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -81,6 +89,17 @@ table {
   }
 }
 
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: .1rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 .container {
   width: 65%;
   margin: 0 auto;
@@ -95,7 +114,8 @@ table {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 0.5px dotted gray;
+  border-bottom: 0.5px dotted #CCCCCC;
+  padding: 1rem 0;
 }
 
 .jumbotron {
@@ -119,9 +139,21 @@ table {
 
 .content section {
   width: 50%;
+  padding: 1rem 0;
+  border-bottom: 0.5px dotted #CCCCCC;
+}
+
+.content section:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .content section.description {
   width: 100%;
-  background: yellow;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: justify;
 }

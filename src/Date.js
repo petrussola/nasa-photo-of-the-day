@@ -3,7 +3,7 @@ import React from 'react';
 function Date({dateText}) {
     return (
         <section>
-            <p>{dateText}</p>
+            <p>Date: {dateText}</p>
         </section>
     )
 };
