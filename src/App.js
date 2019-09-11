@@ -14,7 +14,7 @@ function App() {
   // STATES
 
   const [titleState, setTitle] = useState(null);
-  const [imageURL, setImageURL] = useState(null);
+  const [imageState, setImageURL] = useState(null);
   const [date, setDate] = useState(null);
   const [author, setAuthor] = useState(null);
   const [currDate, setDateForm] = useState();
@@ -49,7 +49,7 @@ function handleSubmit(e) {
         <input type='date' value="2019-11-09" onChange={ e => setDate(e.target.value)} />
       </form> */}
       <Header title={titleState}/>
-      <Image urlState={imageURL}/>
+      <Image imageURL={imageState}/>
       <Date dateState={date} />
       <Author authorState={author} />
     </div>
