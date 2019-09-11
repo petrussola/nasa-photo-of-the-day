@@ -5,7 +5,7 @@ import Source from './Source';
 import Description from './Description';
 
 function Content(props) {
-    const {date, author, description} = props;
+    const {date, author, description, test} = props;
 
     return (
         <div className='content'>
