@@ -11,11 +11,13 @@ function App() {
   const nasaAPI = 'https://lambda-github-api-server.herokuapp.com/';
   const test = "test";
 
-  
+  // STATES
+
   const [title, setTitle] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const [date, setDate] = useState(null);
   const [author, setAuthor] = useState(null);
+  const [currDate, setDateForm] = useState();
   
 useEffect( () => {
   axios.get(nasaAPI)
@@ -28,14 +30,24 @@ useEffect( () => {
       .catch(error => {
         console.log(error.message);
       })
-      .finally( res => {
-        debugger
-      })
 }, [])
+
+// handling form data
+
+
+function handleChange(e) {
+  console.log(e.target)
+}
+function handleSubmit(e) {
+  console.log(e.target)
+}
 
 
   return (
     <div>
+      <form>
+        <input type='date' value="2019-11-09" onChange={ e => setDate(e.target.value)} />
+      </form>
       <Title titleState={title}/>
       <Image urlState={imageURL}/>
       <Date dateState={date} />
