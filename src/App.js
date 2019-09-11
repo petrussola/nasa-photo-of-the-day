@@ -3,8 +3,7 @@ import axios from 'axios';
 import "./App.css";
 import Header from './Header';
 import Image from './Image';
-import Date from './Date';
-import Author from './Author';
+import Content from './Content';
 
 function App() {
 
@@ -15,8 +14,9 @@ function App() {
 
   const [titleState, setTitle] = useState(null);
   const [imageState, setImageURL] = useState(null);
-  const [date, setDate] = useState(null);
-  const [author, setAuthor] = useState(null);
+  const [dateState, setDate] = useState(null);
+  const [authorState, setAuthor] = useState(null);
+  const [descriptionState, setDescription] = useState(null);
   const [currDate, setDateForm] = useState();
   
 useEffect( () => {
@@ -26,6 +26,8 @@ useEffect( () => {
         setImageURL(resp.data.url);
         setDate(resp.data.date);
         setAuthor(resp.data.copyright);
+        setDescription(resp.data.explanation);
+        debugger
       })
       .catch(error => {
         console.log(error.message);
@@ -35,12 +37,12 @@ useEffect( () => {
 // handling form data
 
 
-function handleChange(e) {
-  console.log(e.target)
-}
-function handleSubmit(e) {
-  console.log(e.target)
-}
+// function handleChange(e) {
+//   console.log(e.target)
+// }
+// function handleSubmit(e) {
+//   console.log(e.target)
+// }
 
 
   return (
@@ -50,8 +52,7 @@ function handleSubmit(e) {
       </form> */}
       <Header title={titleState}/>
       <Image imageURL={imageState}/>
-      <Date dateState={date} />
-      <Author authorState={author} />
+      <Content date={dateState} author={authorState} description={descriptionState} />
     </div>
   );
 }

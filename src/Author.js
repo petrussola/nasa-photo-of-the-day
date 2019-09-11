@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Author({authorState}) {
+function Author({authorText}) {
     return (
-        <p>{authorState}</p>
+        <section>
+            <p>{authorText}</p>
+        </section>
     )
 };
 
