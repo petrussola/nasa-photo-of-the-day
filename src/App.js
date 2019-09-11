@@ -27,7 +27,6 @@ useEffect( () => {
         setDate(resp.data.date);
         setAuthor(resp.data.copyright);
         setDescription(resp.data.explanation);
-        debugger
       })
       .catch(error => {
         console.log(error.message);

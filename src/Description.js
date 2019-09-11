@@ -2,7 +2,7 @@ import React from 'react';
 
 function Description({descriptionText}) {
     return (
-        <section>
+        <section className='description'>
             <p>{descriptionText}</p>
         </section>
     )
