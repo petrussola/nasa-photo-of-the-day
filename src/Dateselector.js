@@ -1,9 +1,9 @@
 import React from "react";
 
-function DateSelector({date, setDate}) {
+function DateSelector({date, setDate, maxDate}) {
   return (
     <form id='date'>
-      <input type="date" id='date' value={date} onChange={(e) => setDate(e)}></input>
+      <input type="date" id='date' value={date} max={maxDate} onChange={(e) => setDate(e)}></input>
     </form>
   );
 }

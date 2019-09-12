@@ -87,7 +87,7 @@ useEffect( () => {
 
   return (
     <StyledDiv className='container'>
-      <Header title={titleState} date={currDate} setDate={setDateSelector} />
+      <Header title={titleState} date={currDate} setDate={setDateSelector}maxDate={dateToday} />
       <Image imageURL={imageState}/>
       <Content date={dateState} author={authorState} description={descriptionState}/>
     </StyledDiv>

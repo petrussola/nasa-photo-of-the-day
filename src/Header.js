@@ -17,11 +17,11 @@ const StyledHeader = styled.div`
   }
 `;
 
-function Header({ title, date, setDate }) {
+function Header({ title, date, setDate, maxDate }) {
   return (
     <StyledHeader className="header">
       <Title title={title} />
-      <DateSelector date={date} setDate={setDate} />
+      <DateSelector date={date} setDate={setDate} maxDate={maxDate}/>
     </StyledHeader>
   );
 }
