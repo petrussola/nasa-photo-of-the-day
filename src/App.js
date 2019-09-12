@@ -18,12 +18,16 @@ function App() {
   const [descriptionState, setDescription] = useState(null);
   
   // DATE STATE
-  const today = '2019-09-12'
-  const [currDate, setDateForm] = useState(today);
+  const today = new Date();
+  const dd = ('0' + today.getDate()).slice(-2);
+  const mm = ('0' + (today.getMonth() + 1)).slice(-2);
+  const yyyy = today.getFullYear();
+  const dateToday = yyyy + '-' + mm + '-' + dd;
+  const [currDate, setDateForm] = useState(dateToday);
   
-  // const setDateSelector = (e) => {
-  //   return setDateForm(e.target.value);
-  // }
+  const setDateSelector = (e) => {
+    return setDateForm(e.target.value);
+  }
   
   const nasaAPI = `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${currDate}`;
   const test = "test";
@@ -84,7 +88,7 @@ useEffect( () => {
 
   return (
     <StyledDiv className='container'>
-      <Header title={titleState} date={currDate} setDate={setDateForm} />
+      <Header title={titleState} date={currDate} setDate={setDateSelector} />
       <Image imageURL={imageState}/>
       <Content date={dateState} author={authorState} description={descriptionState}/>
     </StyledDiv>
