@@ -4,6 +4,7 @@ import "./App.css";
 import Header from './Header';
 import Image from './Image';
 import Content from './Content';
+import styled from 'styled-components';
 
 function App() {
 
@@ -58,10 +59,44 @@ useEffect( () => {
     console.log(currDate);
     setDateForm(document.getElementById('form').value);
     console.log(currDate);
+    console.log('https://lambda-github-api-server.herokuapp.com/' + currDate)
   }
 
+  const StyledDiv = styled.div`
+    width: 65%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    @media (max-width: 500px) {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: .1rem;
+      @media (max-width: 500px) {
+        font-size: 1.5rem;
+      }
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6; 
+      @media (max-width: 500px) {
+        line-height: 2;
+      } 
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 2px dotted #CCCCCC;
+    }
+  `;
+
   return (
-    <div className='container'>
+    <StyledDiv className='container'>
       {/* <form>
         <input type='date' value="2019-11-09" onChange={ e => setDate(e.target.value)} />
       </form> */}
@@ -80,7 +115,7 @@ useEffect( () => {
       <Header title={titleState}/>
       <Image imageURL={imageState}/>
       <Content date={dateState} author={authorState} description={descriptionState}/>
-    </div>
+    </StyledDiv>
   );
 }
 
