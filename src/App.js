@@ -8,18 +8,26 @@ import styled from 'styled-components';
 
 function App() {
 
-  const nasaAPI = 'https://lambda-github-api-server.herokuapp.com/';
-  const test = "test";
-
+  
   // STATES
-
+  
   const [titleState, setTitle] = useState(null);
   const [imageState, setImageURL] = useState(null);
   const [dateState, setDate] = useState(null);
   const [authorState, setAuthor] = useState(null);
   const [descriptionState, setDescription] = useState(null);
-  const [currDate, setDateForm] = useState('yayaya');
   
+  // DATE STATE
+  const today = '2019-09-12'
+  const [currDate, setDateForm] = useState(today);
+  
+  // const setDateSelector = (e) => {
+  //   return setDateForm(e.target.value);
+  // }
+  
+  const nasaAPI = `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${currDate}`;
+  const test = "test";
+
 useEffect( () => {
   axios.get(nasaAPI)
     .then(resp => {
@@ -28,39 +36,18 @@ useEffect( () => {
         setDate(resp.data.date);
         setAuthor(resp.data.copyright);
         setDescription(resp.data.explanation);
+        console.log(nasaAPI);
       })
       .catch(error => {
         console.log(error.message);
       })
-}, [])
+}, [currDate])
 
 // handling form data
 
 
-// function handleChange(e) {
-//   console.log(e.target)
-// }
-// function handleSubmit(e) {
-//   console.log(e.target)
-// }
-  function onSubmit(e){
-    e.preventDefault();
-    const dateInput = document.getElementById('date');
-    // console.log(currDate);
-    // console.log(dateInput.value);
-    // setDateForm(dateInput.value);
-    // console.log(currDate);
-    return dateInput.value;
-  }
 
-  function handleChange(e){
-    console.log(e);
-    console.log(document.getElementById('form').value);
-    console.log(currDate);
-    setDateForm(document.getElementById('form').value);
-    console.log(currDate);
-    console.log('https://lambda-github-api-server.herokuapp.com/' + currDate)
-  }
+// styled components
 
   const StyledDiv = styled.div`
     width: 65%;
@@ -97,22 +84,7 @@ useEffect( () => {
 
   return (
     <StyledDiv className='container'>
-      {/* <form>
-        <input type='date' value="2019-11-09" onChange={ e => setDate(e.target.value)} />
-      </form> */}
-      <form onSubmit={(e) => setDateForm(onSubmit(e))} onChange={handleChange}>
-        {/* <label>
-          Add your date 
-          <input type='text' id='date'/>
-          <input type='submit'  />
-        </label> */}
-        Add your date 
-        <select id='form'>
-          <option>2019-09-10</option>
-          <option>2019-08-28</option>
-        </select>
-      </form>
-      <Header title={titleState}/>
+      <Header title={titleState} date={currDate} setDate={setDateForm} />
       <Image imageURL={imageState}/>
       <Content date={dateState} author={authorState} description={descriptionState}/>
     </StyledDiv>

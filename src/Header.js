@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "./Title";
+import DateSelector from "./Dateselector";
 import styled from "styled-components";
 
 const StyledHeader = styled.div`
@@ -16,10 +17,11 @@ const StyledHeader = styled.div`
   }
 `;
 
-function Header({ title }) {
+function Header({ title, date, setDate }) {
   return (
     <StyledHeader className="header">
       <Title title={title} />
+      <DateSelector date={date} setDate={setDate} />
     </StyledHeader>
   );
 }
