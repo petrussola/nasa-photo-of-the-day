@@ -7,7 +7,7 @@ const StyledHeader = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 0.5px dotted #cccccc;
   padding: 1rem 0;
