@@ -40,7 +40,6 @@ useEffect( () => {
         setDate(resp.data.date);
         setAuthor(resp.data.copyright);
         setDescription(resp.data.explanation);
-        console.log(nasaAPI);
       })
       .catch(error => {
         console.log(error.message);
